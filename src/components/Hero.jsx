@@ -1,19 +1,15 @@
-import Spline from "@splinetool/react-spline";
 import { Star } from "lucide-react";
 
 export default function Hero() {
   return (
     <section className="relative min-h-[80vh] grid place-items-center overflow-hidden">
-      <div className="absolute inset-0">
-        {/* Safe Spline embed with full size, no negative z-index */}
-        <Spline
-          scene="https://prod.spline.design/5JHc6k6m9b6bS9qB/scene.splinecode"
-          style={{ width: "100%", height: "100%" }}
-        />
-      </div>
-
-      {/* Gradient veil with pointer-events-none so Spline stays interactive */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/80 via-white/70 to-white"></div>
+      {/* Reliable, GPU-friendly gradient background (no external embeds) */}
+      <div
+        className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_10%_-10%,rgba(255,200,150,0.35),transparent),radial-gradient(900px_500px_at_90%_10%,rgba(255,120,180,0.35),transparent),linear-gradient(to_bottom,white,white)]"
+        aria-hidden
+      />
+      {/* Soft vignette */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white" aria-hidden />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
         <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-medium text-gray-700 shadow-sm">
